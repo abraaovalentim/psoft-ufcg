@@ -12,39 +12,43 @@ public class Produto {
         this.fabricante = fabricante;
     }
 
-    String getId(){
+    public String toString(){
+        return id + " - " + this.nome + " " + this.fabricante + " - " + this.quantidade;
+    }
+
+    public String getId(){
         return this.id;
     }
 
-    String getNome(){
+    public String getNome(){
         return this.nome;
     }
 
-    String getFabricante(){
+    public String getFabricante(){
         return this.fabricante;
     }
 
-    int getQuantidade(){
+    public int getQuantidade(){
         return this.quantidade;
     }
 
-    void setId(String newId){
+    public void setId(String newId){
      this.id = newId;
     }
 
-    void setNome(String newNome){
+    public void setNome(String newNome){
         this.nome = newNome;
     }
 
-    void setFabricante(String newFabricante){
+    public void setFabricante(String newFabricante){
         this.id = newFabricante;
     }
 
-    void soma(int quant){
+    public void soma(int quant){
         this.quantidade += quant;
     }
 
-    void vende(int quant){
+    public void vende(int quant){
         this.quantidade -= quant;
     }
 }

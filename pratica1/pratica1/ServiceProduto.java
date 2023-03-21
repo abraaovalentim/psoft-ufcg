@@ -2,27 +2,20 @@ package pratica1;
 public class ServiceProduto {
     private RepositoryProduto rp;
 
-    ServiceProduto(){}
-
-    void addProduto(String id, String nome, String fabricante){
-        Produto produto = new Produto(id, nome, fabricante);
-        rp.addProduto(id, produto, 1);
+    ServiceProduto(){
+        this.rp = new RepositoryProduto();
     }
 
-    void addProduto(String id, String nome, String fabricante, int quant){
+    public void addProduto(String id, String nome, String fabricante, int quant){
         Produto produto = new Produto(id, nome, fabricante);
         rp.addProduto(id, produto, quant);
     }
 
-    void removeProduto(String id){
-        rp.removeProduto(id, 1);
+    public int removeProduto(String id, int quant){
+        return rp.removeProduto(id, quant);
     }
 
-    void removeProduto(String id, int quant){
-        rp.removeProduto(id, quant);
-    }
-
-    boolean mudaId(String id, String newId){
+    public boolean mudaId(String id, String newId){
         boolean mi = false;
         Produto objeto = rp.getProduto(id);
         if (objeto != null){
@@ -32,7 +25,7 @@ public class ServiceProduto {
         return mi;
     }
 
-    boolean mudaNome(String id, String newNome){
+    public boolean mudaNome(String id, String newNome){
         boolean mn = false;
         Produto objeto = rp.getProduto(id);
         if (objeto != null){
@@ -42,7 +35,7 @@ public class ServiceProduto {
         return mn;
     }
 
-    boolean mudaFabricante(String id, String newFabricante){
+    public boolean mudaFabricante(String id, String newFabricante){
         boolean mn = false;
         Produto objeto = rp.getProduto(id);
         if (objeto != null){
@@ -50,5 +43,9 @@ public class ServiceProduto {
             mn = true;
         }
         return mn;
+    }
+
+    public String listaProdutos(){
+        return this.rp.listaProdutos();
     }
 }
